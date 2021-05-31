@@ -15,8 +15,12 @@ public class VariableAssignmentActivity {
 	public static void main(String[] args) {
 		
 		// 1- Declare a variable of type int and assign it default value.
-		// 2- Update the value 
-		// 3- Print updated value to the console
-	}
+		int a = 0;
 
+		// 2- Update the value
+		a = 1;
+
+		// 3- Print updated value to the console
+		System.out.println(a);
+	}
 }

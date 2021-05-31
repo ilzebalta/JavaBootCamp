@@ -18,10 +18,7 @@ public class NumToWords {
 			System.out.println ( "The value of i is:- " + i );
 		}
 
-		
-		
-				
-		int i = 2;
+		int i = 4;
 		String numText ;
 		switch(i) {
 		case 1:
@@ -43,11 +40,6 @@ public class NumToWords {
 		default:
 			numText = "NUMBER " + i;
 		}
-
 		System.out.println(numText);
-
-
 	}
-	
-
 }
