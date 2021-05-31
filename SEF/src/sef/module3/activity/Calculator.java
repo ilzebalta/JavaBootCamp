@@ -12,17 +12,17 @@ import sef.module4.sample.Person;
 public class Calculator {
 
 	public static void main(String[] args) {
-		Person p1 = new Person("Atif");
-		Person p2 = new Person("Gatis");
+//		Person p1 = new Person("Atif");
+//		Person p2 = new Person("Gatis");
 
-	int x = 10;
-	int y = 0;
+	int x = 15;
+	int y = 3;
 
 	int[] nums = {1, 2, 3, 4};
-//
-//	System.out.println("Addition - " + add(x,y));
-//	System.out.println("Subtraction - " + subtract(x,y)); // x = 10, y - 20 =  10 - (-20)
-//	System.out.println("Multiply - " + multiply(nums));
+
+	System.out.println("Addition - " + add(x,y));
+	System.out.println("Subtraction - " + subtract(x,y));
+	System.out.println("Multiply - " + multiply(nums));
 	System.out.println("Divide - " + divide(x,y));
 	}
 
@@ -57,8 +57,7 @@ public class Calculator {
 		int divValue = 0;
 		if (x == 0 || y == 0) {
 			System.out.println("One of the number is 0, I can't do the divide operation");
-//			divValue = 0;
-//			return 0;
+			return 0;
 			// complete the code
 		} else {
 			divValue = x/y;

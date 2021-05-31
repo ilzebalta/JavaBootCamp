@@ -42,7 +42,5 @@ public class FindLargest {
 				System.out.println(k+ " is Largest of three numbers");
 			}
 		}
-
 	}
-
 }

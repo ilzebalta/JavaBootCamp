@@ -25,7 +25,5 @@ public class OperatorActivity {
 			// Print result
 			System.out.println("Addition = " + result);	
 		}
-		
 	}
-
 }
