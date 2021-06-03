@@ -18,7 +18,7 @@ public class ArithmeticExceptionActivity {
         try {
             int result = num1 / num2;
             System.out.println("The result is :" + result);
-        } catch (Exception e) {
+        } catch (ArithmeticException e) {
             System.out.println("There is some problem with performing requested method");
         } finally {
             System.out.println("Thank you for using this program.");
