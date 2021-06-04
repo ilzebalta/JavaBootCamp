@@ -51,8 +51,9 @@ public class Employee extends Person {
     }
 
     //method
-    public void workIn() {
-        System.out.println("I work as " + jobTitle + " in " + company + ".");
+    public String workIn() {
+        String message = "I work as " + jobTitle + " in " + company + ".";
+        return message;
     }
 
     //method for printing out employee list in readable way

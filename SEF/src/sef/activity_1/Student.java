@@ -9,18 +9,22 @@ public class Student extends Person {
     }
 
     //constructor
-    public Student(String university) {
-        this.university = university;
-    }
-
-    //constructor
     public Student(String name, int age, String university) {
         super(name, age);
         this.university = university;
     }
 
+    public String getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(String university) {
+        this.university = university;
+    }
+
     //method
-    public void studyIn() {
-        System.out.println("I study in university " + university + ".");
+    public String studyIn() {
+        String message = "I study in university " + university + ".";
+        return message;
     }
 }

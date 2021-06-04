@@ -10,21 +10,26 @@ public class FirstActivity {
         Person person = new Person("Ilze", 30);
         System.out.println("-------");
         System.out.println("This is Person");
-        person.introduceYourself();
+        String message = person.introduceYourself();
+        System.out.println(message);
 
         //Employee object
         Employee employee = new Employee("Ilze", 30, "Test automation engineer", "Accenture", 2000);
         System.out.println("-------");
         System.out.println("This is Employee");
-        employee.introduceYourself();
-        employee.workIn();
+        String introduceMessage = employee.introduceYourself();
+        String workMessage = employee.workIn();
+        System.out.println(introduceMessage);
+        System.out.println(workMessage);
 
         //Student object
         Student student = new Student("Ilze", 30, "Riga Business School");
         System.out.println("-------");
         System.out.println("This is Student");
-        student.introduceYourself();
-        student.studyIn();
+        String introduceMessage1 = student.introduceYourself();
+        String studyMessage = student.studyIn();
+        System.out.println(introduceMessage1);
+        System.out.println(studyMessage);
         System.out.println("-------");
 
         //Employees
@@ -45,7 +50,7 @@ public class FirstActivity {
     }
 
     //method for sorting employee list (more to less) and printing it out
-    void printSortedEmployeeList(List<Employee> employeeList) {
+    public void printSortedEmployeeList(List<Employee> employeeList) {
         List<Employee> sortedList = employeeList.stream()
                 .sorted(Comparator.comparing(Employee::getSalary).reversed())
                 .collect(Collectors.toList());

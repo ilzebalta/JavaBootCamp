@@ -33,7 +33,8 @@ public class Person {
     }
 
     //method
-    public void introduceYourself() {
-        System.out.println("My name is " + name + " and I am " + age + " years old.");
+    public String introduceYourself() {
+        String message = "My name is " + name + " and I am " + age + " years old.";
+        return message;
     }
 }
