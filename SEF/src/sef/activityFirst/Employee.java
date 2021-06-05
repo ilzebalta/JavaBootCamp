@@ -58,8 +58,8 @@ public class Employee extends Person {
     //method for printing out employee list in readable way
     @Override
     public String toString() {
-        String toString = "Name: " + getName() + " | age: " + getAge() + " | job title: " + getJobTitle()
+        String printToString = "Name: " + getName() + " | age: " + getAge() + " | job title: " + getJobTitle()
                 + " | company: " + company + " | salary: " + salary;
-        return toString;
+        return printToString;
     }
 }

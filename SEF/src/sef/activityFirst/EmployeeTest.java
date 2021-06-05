@@ -10,7 +10,7 @@ public class EmployeeTest extends TestCase {
     protected Employee employee;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
-    protected void setUp() {
+    protected void setUp() throws CustomizedException {
         employee = new Employee();
         employee.setName("Ilze");
         employee.setAge(30);

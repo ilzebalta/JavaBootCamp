@@ -1,5 +1,7 @@
 package sef.activityFirst;
 
+import sef.module8.sample.CustomException;
+
 public class Person {
     //attributes
     private String name;
@@ -20,8 +22,12 @@ public class Person {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name) throws CustomizedException {
+        if (hasDigits(name)) {
+          throw new CustomizedException();
+        } else {
+            this.name = name;
+        }
     }
 
     public int getAge() {
@@ -33,7 +39,24 @@ public class Person {
     }
 
     //method
-    public void introduceYourself() {
-        System.out.println("My name is " + name + " and I am " + age + " years old.");
+    public void introduceYourself() throws CustomizedException{
+        if (!hasDigits(name)) {
+            System.out.println("My name is " + name + " and I am " + age + " years old.");
+        } else {
+            throw new CustomizedException();
+        }
+    }
+    //method
+    private static boolean hasDigits(String name) {
+        boolean hasDigits = false;
+
+        for (int i = 0; i < name.length(); i++) {
+            char ch = name.charAt(i);
+
+            if (Character.isDigit(ch)) {
+                hasDigits = true;
+            }
+        }
+        return hasDigits;
     }
 }

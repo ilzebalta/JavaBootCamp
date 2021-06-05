@@ -2,18 +2,18 @@ package sef.activityFirst;
 
 import junit.framework.TestCase;
 
-import java.util.ArrayList;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.assertThat;
 
 public class FirstActivityTest extends TestCase {
 
     protected FirstActivity firstActivity;
-    protected Person person;
 
-    protected Employee employee1;
+    private Person person;
 
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
     protected void setUp() {
         firstActivity = new FirstActivity();
@@ -21,34 +21,36 @@ public class FirstActivityTest extends TestCase {
         employee1 = new Employee();
         employee2 = new Employee();
         employee3 = new Employee();
-        List<Employee> employeeList = new ArrayList<>();
+        System.setOut(new PrintStream(outputStreamCaptor));
     }
 
-//    public void testPersonObject() {
-//        String name = "Ilze";
-//        int age = 30;
-//        person = new Person(name, age);
-//        String result = person.introduceYourself();
-//        assertEquals("My name is Ilze and I am 30 years old.", result);
-//    }
+    public void testPersonObject() {
+        String name = "Ilze";
+        int age = 30;
+        person = new Person(name, age);
+        assertEquals(name, person.getName());
+        assertEquals(age, person.getAge());
+    }
 
+    Employee employee1 = new Employee();
+    Employee employee2 = new Employee();
+    Employee employee3 = new Employee();
 
-    //    ("John", 35, "Senior test automation engineer", "Accenture", 3000);
-    Employee employee2 = new Employee("Jane", 25, "Junior Developer", "Accenture", 2500);
-    Employee employee3 = new Employee("Mark", 38, "Project Manager", "Accenture", 3500);
-
-
+    /* this test does prove that expected list is sorted in a way that it is expected to be, but
+    * it fails simply because data in the test output are not formatted in the same way.
+    * data from actual list with tested method is using special toString method from Employee class
+     * did not manage to find find the right solution for this
+     */
     public void testPrintSortedEmployeeList() {
-        List<Employee> employeeList = new ArrayList<>();
-        employeeList.add(employee1);
-        employeeList.add(employee2);
-        employeeList.add(employee3);
+        employee1.setSalary(3000);
+        employee2.setSalary(2500);
+        employee3.setSalary(3500);
 
-        firstActivity.printSortedEmployeeList(employeeList);
-        ;
+        List<Employee> actualList = Arrays.asList(employee1, employee2, employee3);
+        List<Employee> expectedList = Arrays.asList(employee3, employee1, employee2);
 
+        firstActivity.printSortedEmployeeList(actualList);
 
+        assertEquals(expectedList.toString().trim(), outputStreamCaptor.toString().trim());
     }
-
-
 }

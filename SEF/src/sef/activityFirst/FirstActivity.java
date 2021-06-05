@@ -6,27 +6,65 @@ import java.util.stream.Collectors;
 public class FirstActivity {
 
     public static void main(String arg[]) {
+
         //Person object
-        Person person = new Person("Ilze", 30);
-        System.out.println("-------");
-        System.out.println("This is Person");
-        person.introduceYourself();
+        try {
+            Person person = new Person();
+            person.setName("Ilze");
+            person.setAge(30);
+
+            System.out.println("-------");
+            System.out.println("This is Person");
+
+            person.introduceYourself();
+
+        } catch (CustomizedException e) {
+            System.out.println("This is Person");
+            System.out.println("Can not create object, because " + e.getMessage());
+        }
 
         //Employee object
-        Employee employee = new Employee("Ilze", 30, "Test automation engineer", "Accenture", 2000);
-        System.out.println("-------");
-        System.out.println("This is Employee");
-        employee.introduceYourself();
-        employee.workIn();
+        try {
+            Employee employee = new Employee();
+            employee.setName("Ilze");
+            employee.setAge(30);
+            employee.setJobTitle("Test automation engineer");
+            employee.setCompany("Accenture");
+            employee.setSalary(2000);
+
+            System.out.println("-------");
+            System.out.println("This is Employee");
+
+            employee.introduceYourself();
+            employee.workIn();
+        } catch (CustomizedException e) {
+            System.out.println("-------");
+            System.out.println("This is Employee");
+            System.out.println("Can not create object, because " + e.getMessage());
+        }
 
 
         //Student object
-        Student student = new Student("Ilze", 30, "Riga Business School");
-        System.out.println("-------");
-        System.out.println("This is Student");
-        student.introduceYourself();
-        student.studyIn();
-        System.out.println("-------");
+        try {
+            Student student = new Student();
+            student.setName("Ilze");
+            student.setAge(30);
+            student.setUniversity("Riga Business School");
+
+            System.out.println("-------");
+            System.out.println("This is Student");
+
+            student.introduceYourself();
+            student.studyIn();
+
+            System.out.println("-------");
+
+        } catch (CustomizedException e) {
+            System.out.println("-------");
+            System.out.println("This is Student");
+            System.out.println("Can not create object, because " + e.getMessage());
+            System.out.println("-------");
+        }
 
         //Employees
         Employee employee1 = new Employee("John", 35, "Senior test automation engineer", "Accenture", 3000);
@@ -35,13 +73,13 @@ public class FirstActivity {
 
         //Employee list
         List<Employee> employeeList = new ArrayList<>();
-        employeeList.add(employee);
         employeeList.add(employee1);
         employeeList.add(employee2);
         employeeList.add(employee3);
 
         //calling on employee sort-and-print method
         FirstActivity firstActivity = new FirstActivity();
+        System.out.println("This is sorted Employee list, by salary from more to less");
         firstActivity.printSortedEmployeeList(employeeList);
     }
 
@@ -50,7 +88,6 @@ public class FirstActivity {
         List<Employee> sortedList = employeeList.stream()
                 .sorted(Comparator.comparing(Employee::getSalary).reversed())
                 .collect(Collectors.toList());
-        System.out.println("This is sorted Employee list, by salary from more to less");
         sortedList.forEach(System.out::println);
     }
 }

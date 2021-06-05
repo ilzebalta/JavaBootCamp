@@ -10,13 +10,12 @@ public class StudentTest extends TestCase {
     protected Student student;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
-    protected void setUp() {
+    protected void setUp() throws CustomizedException {
         student = new Student();
         student.setName("Ilze");
         student.setAge(30);
         student.setUniversity("Rigas Business School");
         System.setOut(new PrintStream(outputStreamCaptor));
-
     }
 
     public void testStudyIn() {
