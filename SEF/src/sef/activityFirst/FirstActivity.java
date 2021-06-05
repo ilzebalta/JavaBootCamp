@@ -1,4 +1,4 @@
-package sef.activity_1;
+package sef.activityFirst;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -10,26 +10,22 @@ public class FirstActivity {
         Person person = new Person("Ilze", 30);
         System.out.println("-------");
         System.out.println("This is Person");
-        String message = person.introduceYourself();
-        System.out.println(message);
+        person.introduceYourself();
 
         //Employee object
         Employee employee = new Employee("Ilze", 30, "Test automation engineer", "Accenture", 2000);
         System.out.println("-------");
         System.out.println("This is Employee");
-        String introduceMessage = employee.introduceYourself();
-        String workMessage = employee.workIn();
-        System.out.println(introduceMessage);
-        System.out.println(workMessage);
+        employee.introduceYourself();
+        employee.workIn();
+
 
         //Student object
         Student student = new Student("Ilze", 30, "Riga Business School");
         System.out.println("-------");
         System.out.println("This is Student");
-        String introduceMessage1 = student.introduceYourself();
-        String studyMessage = student.studyIn();
-        System.out.println(introduceMessage1);
-        System.out.println(studyMessage);
+        student.introduceYourself();
+        student.studyIn();
         System.out.println("-------");
 
         //Employees

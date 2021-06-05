@@ -1,4 +1,4 @@
-package sef.activity_2;
+package sef.activitySecond;
 
 public class Calculator {
 

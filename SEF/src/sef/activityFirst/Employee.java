@@ -1,4 +1,4 @@
-package sef.activity_1;
+package sef.activityFirst;
 
 public class Employee extends Person {
     // attributes
@@ -51,16 +51,15 @@ public class Employee extends Person {
     }
 
     //method
-    public String workIn() {
-        String message = "I work as " + jobTitle + " in " + company + ".";
-        return message;
+    public void workIn() {
+        System.out.println("I work as " + jobTitle + " in " + company + ".");
     }
 
     //method for printing out employee list in readable way
     @Override
     public String toString() {
-        String toString = "Name " + getName() + " age " + getAge() + " job title " + getJobTitle()
-                + " company " + company + " salary " + salary;
+        String toString = "Name: " + getName() + " | age: " + getAge() + " | job title: " + getJobTitle()
+                + " | company: " + company + " | salary: " + salary;
         return toString;
     }
 }

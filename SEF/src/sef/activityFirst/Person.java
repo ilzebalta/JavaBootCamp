@@ -1,4 +1,4 @@
-package sef.activity_1;
+package sef.activityFirst;
 
 public class Person {
     //attributes
@@ -33,8 +33,7 @@ public class Person {
     }
 
     //method
-    public String introduceYourself() {
-        String message = "My name is " + name + " and I am " + age + " years old.";
-        return message;
+    public void introduceYourself() {
+        System.out.println("My name is " + name + " and I am " + age + " years old.");
     }
 }

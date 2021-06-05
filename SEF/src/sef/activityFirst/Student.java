@@ -1,4 +1,4 @@
-package sef.activity_1;
+package sef.activityFirst;
 
 public class Student extends Person {
     //attributes
@@ -23,8 +23,7 @@ public class Student extends Person {
     }
 
     //method
-    public String studyIn() {
-        String message = "I study in university " + university + ".";
-        return message;
+    public void studyIn() {
+        System.out.println("I study in university " + university + ".");
     }
 }

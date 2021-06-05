@@ -1,21 +1,27 @@
-package sef.activity_1;
+package sef.activityFirst;
 
 import junit.framework.TestCase;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 public class StudentTest extends TestCase {
 
     protected Student student;
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
     protected void setUp() {
         student = new Student();
         student.setName("Ilze");
         student.setAge(30);
         student.setUniversity("Rigas Business School");
+        System.setOut(new PrintStream(outputStreamCaptor));
+
     }
 
     public void testStudyIn() {
-        String result = student.studyIn();
-        assertEquals("I study in university Rigas Business School.", result);
+        student.studyIn();
+        assertEquals("I study in university Rigas Business School.", outputStreamCaptor.toString().trim());
     }
 
     public void testStudentConstructor() {

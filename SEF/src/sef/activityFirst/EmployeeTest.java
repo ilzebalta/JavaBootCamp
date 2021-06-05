@@ -1,11 +1,14 @@
-package sef.activity_1;
-
+package sef.activityFirst;
 
 import junit.framework.TestCase;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 public class EmployeeTest extends TestCase {
 
     protected Employee employee;
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
     protected void setUp() {
         employee = new Employee();
@@ -14,16 +17,17 @@ public class EmployeeTest extends TestCase {
         employee.setJobTitle("Test automation engineer");
         employee.setCompany("Accenture");
         employee.setSalary(2000);
+        System.setOut(new PrintStream(outputStreamCaptor));
     }
 
     public void testWorkIn() {
-        String result = employee.workIn();
-        assertEquals("I work as Test automation engineer in Accenture.", result);
+        employee.workIn();
+        assertEquals("I work as Test automation engineer in Accenture.", outputStreamCaptor.toString().trim());
     }
 
     public void testToString() {
         String result = employee.toString();
-        assertEquals("Name Ilze age 30 job title Test automation engineer company Accenture salary 2000",
+        assertEquals("Name: Ilze | age: 30 | job title: Test automation engineer | company: Accenture | salary: 2000",
                 result);
     }
 
