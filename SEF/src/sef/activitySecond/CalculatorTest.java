@@ -2,7 +2,6 @@ package sef.activitySecond;
 
 import junit.framework.TestCase;
 
-
 public class CalculatorTest extends TestCase {
 
     protected Calculator calculator;
