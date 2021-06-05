@@ -43,7 +43,6 @@ public class FirstActivity {
             System.out.println("Can not create object, because " + e.getMessage());
         }
 
-
         //Student object
         try {
             Student student = new Student();
