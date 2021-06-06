@@ -83,7 +83,7 @@ public class FirstActivity {
         //calling on employee sort-and-print method by salary, more to less
         FirstActivity firstActivity = new FirstActivity();
         System.out.println("This is Employee list, sorted by salary from more to less");
-        firstActivity.printSortedEmployeeList(employeeList);
+        firstActivity.printSortedEmployeesBySalary(employeeList);
 
         //calling on employee sort-and-print method by name from A to Z
         System.out.println("-------");
@@ -102,7 +102,7 @@ public class FirstActivity {
     }
 
     //method for sorting employee list (salary more to less) and printing it out
-    public void printSortedEmployeeList(List<Employee> employeeList) {
+    public void printSortedEmployeesBySalary(List<Employee> employeeList) {
         List<Employee> sortedList = employeeList.stream()
                 .sorted(Comparator.comparing(Employee::getSalary).reversed())
                 .collect(Collectors.toList());

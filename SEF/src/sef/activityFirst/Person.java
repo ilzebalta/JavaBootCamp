@@ -8,7 +8,6 @@ public class Person {
     private String surname;
     private int age;
 
-
     //default constructor
     public Person() {
     }
@@ -27,7 +26,7 @@ public class Person {
 
     public void setName(String name) throws CustomizedException {
         if (hasDigits(name)) {
-          throw new CustomizedException();
+            throw new CustomizedException();
         } else {
             this.name = name;
         }
@@ -54,13 +53,14 @@ public class Person {
     }
 
     //method
-    public void introduceYourself() throws CustomizedException{
+    public void introduceYourself() throws CustomizedException {
         if (!hasDigits(name)) {
             System.out.println("My name is " + name + " " + surname + " and I am " + age + " years old.");
         } else {
             throw new CustomizedException();
         }
     }
+
     //method
     private static boolean hasDigits(String name) {
         boolean hasDigits = false;

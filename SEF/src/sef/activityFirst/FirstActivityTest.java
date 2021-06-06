@@ -45,7 +45,7 @@ public class FirstActivityTest extends TestCase {
      * data from actual list with tested method is using special toString method from Employee class;
      * did not manage to find find the right solution how to solve this;
      */
-    public void testPrintSortedEmployeeList() {
+    public void testPrintSortedEmployeesBySalary() {
         employee1.setSalary(3000);
         employee2.setSalary(2500);
         employee3.setSalary(3500);
@@ -53,7 +53,7 @@ public class FirstActivityTest extends TestCase {
         List<Employee> actualList = Arrays.asList(employee1, employee2, employee3);
         List<Employee> expectedList = Arrays.asList(employee3, employee1, employee2);
 
-        firstActivity.printSortedEmployeeList(actualList);
+        firstActivity.printSortedEmployeesBySalary(actualList);
 
         assertEquals(expectedList.toString().trim(), outputStreamCaptor.toString().trim());
     }
