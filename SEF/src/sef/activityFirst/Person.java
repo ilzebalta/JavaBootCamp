@@ -1,7 +1,5 @@
 package sef.activityFirst;
 
-import sef.module8.sample.CustomException;
-
 public class Person {
     //attributes
     private String name;

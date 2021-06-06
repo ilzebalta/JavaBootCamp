@@ -20,13 +20,13 @@ public class FirstActivity {
 
         } catch (CustomizedException e) {
             System.out.println("This is Person");
-            System.out.println("Can not create object, because " + e.getMessage());
+            System.out.println("Can not create a Person object, because " + e.getMessage());
         }
 
         //Employee object
         try {
             Employee employee = new Employee();
-            employee.setName("Ilze");
+            employee.setName("Ilze123");
             employee.setAge(30);
             employee.setJobTitle("Test automation engineer");
             employee.setCompany("Accenture");
@@ -40,7 +40,7 @@ public class FirstActivity {
         } catch (CustomizedException e) {
             System.out.println("-------");
             System.out.println("This is Employee");
-            System.out.println("Can not create object, because " + e.getMessage());
+            System.out.println("Can not create an Employee object, because " + e.getMessage());
         }
 
         //Student object
@@ -61,14 +61,14 @@ public class FirstActivity {
         } catch (CustomizedException e) {
             System.out.println("-------");
             System.out.println("This is Student");
-            System.out.println("Can not create object, because " + e.getMessage());
+            System.out.println("Can not create a Student object, because " + e.getMessage());
             System.out.println("-------");
         }
 
         //Employees
-        Employee employee1 = new Employee("John", 35, "Senior test automation engineer", "Accenture", 3000);
-        Employee employee2 = new Employee("Jane", 25, "Junior Developer", "Accenture", 2500);
-        Employee employee3 = new Employee("Mark", 38, "Project Manager", "Accenture", 3500);
+        Employee employee1 = new Employee("John", 40, "Senior test automation engineer", "Accenture", 3000);
+        Employee employee2 = new Employee("Amy", 25, "Junior Developer", "Accenture", 2500);
+        Employee employee3 = new Employee("Mark", 33, "Project Manager", "Accenture", 3500);
 
         //Employee list
         List<Employee> employeeList = new ArrayList<>();
@@ -76,16 +76,40 @@ public class FirstActivity {
         employeeList.add(employee2);
         employeeList.add(employee3);
 
-        //calling on employee sort-and-print method
+        //calling on employee sort-and-print method by salary, more to less
         FirstActivity firstActivity = new FirstActivity();
         System.out.println("This is sorted Employee list, by salary from more to less");
         firstActivity.printSortedEmployeeList(employeeList);
+
+        //calling on employee sort-and-print method by name from A to Z
+        System.out.println("-------");
+        System.out.println("This is sorted Employee list, by name from A to Z");
+        firstActivity.printSortedEmployeesByName(employeeList);
+
+        //calling on employee sort-and-print method by age from younger to older
+        System.out.println("-------");
+        System.out.println("This is sorted Employee list, by age from younger to older");
+        firstActivity.printSortedEmployeesByAge(employeeList);
     }
 
     //method for sorting employee list (more to less) and printing it out
     public void printSortedEmployeeList(List<Employee> employeeList) {
         List<Employee> sortedList = employeeList.stream()
                 .sorted(Comparator.comparing(Employee::getSalary).reversed())
+                .collect(Collectors.toList());
+        sortedList.forEach(System.out::println);
+    }
+
+    public void printSortedEmployeesByName(List<Employee> employeeList) {
+        List<Employee> sortedList = employeeList.stream()
+                .sorted(Comparator.comparing(Employee::getName))
+                .collect(Collectors.toList());
+        sortedList.forEach(System.out::println);
+    }
+
+    public void printSortedEmployeesByAge(List<Employee> employeeList) {
+        List<Employee> sortedList = employeeList.stream()
+                .sorted(Comparator.comparing(Employee::getAge))
                 .collect(Collectors.toList());
         sortedList.forEach(System.out::println);
     }
