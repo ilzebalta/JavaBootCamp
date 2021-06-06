@@ -13,6 +13,7 @@ public class EmployeeTest extends TestCase {
     protected void setUp() throws CustomizedException {
         employee = new Employee();
         employee.setName("Ilze");
+        employee.setSurname("Baltā-Krasta");
         employee.setAge(30);
         employee.setJobTitle("Test automation engineer");
         employee.setCompany("Accenture");
@@ -27,7 +28,7 @@ public class EmployeeTest extends TestCase {
 
     public void testToString() {
         String result = employee.toString();
-        assertEquals("Name: Ilze | age: 30 | job title: Test automation engineer | company: Accenture | salary: 2000",
+        assertEquals("Name: Ilze Baltā-Krasta | age: 30 | job title: Test automation engineer | company: Accenture | salary: 2000",
                 result);
     }
 
@@ -57,14 +58,16 @@ public class EmployeeTest extends TestCase {
 
     public void testEmployeeConstructorFullDetails(){
         String name = "Ilze";
+        String surname = "Baltā-Krasta";
         int age = 30;
         String jobTitle = "Test automation engineer";
         String company = "Accenture";
         int salary = 2000;
 
-        employee = new Employee(name, age, jobTitle, company, salary);
+        employee = new Employee(name, surname, age, jobTitle, company, salary);
 
         assertEquals(name, employee.getName());
+        assertEquals(surname, employee.getSurname());
         assertEquals(age, employee.getAge());
         assertEquals(jobTitle, employee.getJobTitle());
         assertEquals(company, employee.getCompany());

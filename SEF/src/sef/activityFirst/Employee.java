@@ -18,8 +18,8 @@ public class Employee extends Person {
     }
 
     //constructor
-    public Employee(String name, int age, String jobTitle, String company, int salary) {
-        super(name, age);
+    public Employee(String name, String surname, int age, String jobTitle, String company, int salary) {
+        super(name, surname, age);
         this.jobTitle = jobTitle;
         this.company = company;
         this.salary = salary;
@@ -58,7 +58,7 @@ public class Employee extends Person {
     //method for printing out employee list in readable way
     @Override
     public String toString() {
-        String printToString = "Name: " + getName() + " | age: " + getAge() + " | job title: " + getJobTitle()
+        String printToString = "Name: " + getName() + " " + getSurname() + " | age: " + getAge() + " | job title: " + getJobTitle()
                 + " | company: " + company + " | salary: " + salary;
         return printToString;
     }

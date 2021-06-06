@@ -13,6 +13,7 @@ public class StudentTest extends TestCase {
     protected void setUp() throws CustomizedException {
         student = new Student();
         student.setName("Ilze");
+        student.setSurname("Baltā-Krasta");
         student.setAge(30);
         student.setUniversity("Rigas Business School");
         System.setOut(new PrintStream(outputStreamCaptor));
@@ -25,12 +26,14 @@ public class StudentTest extends TestCase {
 
     public void testStudentConstructor() {
         String name = "Ilze";
+        String surname = "Baltā-Krasta";
         int age = 30;
         String university = "Rigas Business School";
 
-        student = new Student(name, age, university);
+        student = new Student(name, surname, age, university);
 
         assertEquals(name, student.getName());
+        assertEquals(surname, student.getSurname());
         assertEquals(age, student.getAge());
         assertEquals(university, student.getUniversity());
     }

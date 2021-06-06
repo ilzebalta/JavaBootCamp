@@ -11,6 +11,8 @@ public class FirstActivity {
         try {
             Person person = new Person();
             person.setName("Ilze");
+            person.setSurname("Baltā-Krasta");
+
             person.setAge(30);
 
             System.out.println("-------");
@@ -26,7 +28,8 @@ public class FirstActivity {
         //Employee object
         try {
             Employee employee = new Employee();
-            employee.setName("Ilze123");
+            employee.setName("Ilze");
+            employee.setSurname("Baltā-Krasta");
             employee.setAge(30);
             employee.setJobTitle("Test automation engineer");
             employee.setCompany("Accenture");
@@ -47,6 +50,7 @@ public class FirstActivity {
         try {
             Student student = new Student();
             student.setName("Ilze");
+            student.setSurname("Baltā-Krasta");
             student.setAge(30);
             student.setUniversity("Riga Business School");
 
@@ -66,9 +70,9 @@ public class FirstActivity {
         }
 
         //Employees
-        Employee employee1 = new Employee("John", 40, "Senior test automation engineer", "Accenture", 3000);
-        Employee employee2 = new Employee("Amy", 25, "Junior Developer", "Accenture", 2500);
-        Employee employee3 = new Employee("Mark", 33, "Project Manager", "Accenture", 3500);
+        Employee employee1 = new Employee("John", "Johnson", 40, "Senior test automation engineer", "Accenture", 3000);
+        Employee employee2 = new Employee("Amy", "Zachary", 25, "Junior Developer", "Accenture", 2500);
+        Employee employee3 = new Employee("Mark", "Stevenson", 33, "Project Manager", "Accenture", 3500);
 
         //Employee list
         List<Employee> employeeList = new ArrayList<>();
@@ -78,21 +82,26 @@ public class FirstActivity {
 
         //calling on employee sort-and-print method by salary, more to less
         FirstActivity firstActivity = new FirstActivity();
-        System.out.println("This is sorted Employee list, by salary from more to less");
+        System.out.println("This is Employee list, sorted by salary from more to less");
         firstActivity.printSortedEmployeeList(employeeList);
 
         //calling on employee sort-and-print method by name from A to Z
         System.out.println("-------");
-        System.out.println("This is sorted Employee list, by name from A to Z");
+        System.out.println("This is Employee list, sorted by name from A to Z");
         firstActivity.printSortedEmployeesByName(employeeList);
+
+        //calling on employee sort-and-print method by surname from A to Z
+        System.out.println("-------");
+        System.out.println("This is Employee list, sorted by surname from A to Z");
+        firstActivity.printSortedEmployeesBySurname(employeeList);
 
         //calling on employee sort-and-print method by age from younger to older
         System.out.println("-------");
-        System.out.println("This is sorted Employee list, by age from younger to older");
+        System.out.println("This is Employee list, sorted by age from younger to older");
         firstActivity.printSortedEmployeesByAge(employeeList);
     }
 
-    //method for sorting employee list (more to less) and printing it out
+    //method for sorting employee list (salary more to less) and printing it out
     public void printSortedEmployeeList(List<Employee> employeeList) {
         List<Employee> sortedList = employeeList.stream()
                 .sorted(Comparator.comparing(Employee::getSalary).reversed())
@@ -100,6 +109,7 @@ public class FirstActivity {
         sortedList.forEach(System.out::println);
     }
 
+    //method for sorting employee list (name A to Z) and printing it out
     public void printSortedEmployeesByName(List<Employee> employeeList) {
         List<Employee> sortedList = employeeList.stream()
                 .sorted(Comparator.comparing(Employee::getName))
@@ -107,6 +117,15 @@ public class FirstActivity {
         sortedList.forEach(System.out::println);
     }
 
+    //method for sorting employee list (surname A to Z) and printing it out
+    public void printSortedEmployeesBySurname(List<Employee> employeeList) {
+        List<Employee> sortedList = employeeList.stream()
+                .sorted(Comparator.comparing(Employee::getSurname))
+                .collect(Collectors.toList());
+        sortedList.forEach(System.out::println);
+    }
+
+    //method for sorting employee list (age from younger to older) and printing it out
     public void printSortedEmployeesByAge(List<Employee> employeeList) {
         List<Employee> sortedList = employeeList.stream()
                 .sorted(Comparator.comparing(Employee::getAge))

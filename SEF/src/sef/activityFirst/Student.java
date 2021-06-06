@@ -9,8 +9,8 @@ public class Student extends Person {
     }
 
     //constructor
-    public Student(String name, int age, String university) {
-        super(name, age);
+    public Student(String name, String surname, int age, String university) {
+        super(name, surname, age);
         this.university = university;
     }
 

@@ -26,9 +26,11 @@ public class FirstActivityTest extends TestCase {
 
     public void testPersonObject() {
         String name = "Ilze";
+        String surname = "Baltā-Krasta";
         int age = 30;
-        person = new Person(name, age);
+        person = new Person(name, surname, age);
         assertEquals(name, person.getName());
+        assertEquals(surname, person.getSurname());
         assertEquals(age, person.getAge());
     }
 
@@ -65,6 +67,19 @@ public class FirstActivityTest extends TestCase {
         List<Employee> expectedList = Arrays.asList(employee2, employee1, employee3);
 
         firstActivity.printSortedEmployeesByName(actualList);
+
+        assertEquals(expectedList.toString().trim(), outputStreamCaptor.toString().trim());
+    }
+
+    public void testPrintSortedEmployeesBySurname() throws CustomizedException {
+        employee1.setSurname("Johnson");
+        employee2.setSurname("Zachary");
+        employee3.setSurname("Stevenson");
+
+        List<Employee> actualList = Arrays.asList(employee1, employee2, employee3);
+        List<Employee> expectedList = Arrays.asList(employee1, employee3, employee2);
+
+        firstActivity.printSortedEmployeesBySurname(actualList);
 
         assertEquals(expectedList.toString().trim(), outputStreamCaptor.toString().trim());
     }
